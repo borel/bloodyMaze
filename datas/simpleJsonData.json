@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Point 1",
+    "links": [
+      {
+        "id": 2,
+        "distance": 10
+      },
+      {
+        "id": 3,
+        "distance": 60
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Point 2",
+    "links": [
+      {
+        "id": 3,
+        "distance": 10
+      },
+      {
+        "id": 4,
+        "distance": 10
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Point 3",
+    "links": [
+      {
+        "id": 2,
+        "distance": 10
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Point 4",
+    "links": [
+    ]
+  }
+]

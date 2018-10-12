@@ -1,10 +1,12 @@
 {
   "name": "bloodymaze",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "API for bloody maze project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:nyc",
+    "test:mocha": "NODE_ENV=test mocha test --recursive --timeout 5000 --require test/helpers.js",
+    "test:nyc": "NODE_ENV=test nyc mocha test --recursive --timeout 5000 --require test/helpers.js"
   },
   "repository": {
     "type": "git",
@@ -12,8 +14,20 @@
   },
   "author": "pbb",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/borel/bloodyMaze/issues"
+  "engines": {
+    "npm": "5.6.0",
+    "node": "8.10.0"
+  },
+  "dependencies": {
+    "config": "2.0.1",
+    "dijkstrajs": "1.0.1",
+    "express": "4.16.1"
+  },
+  "devDependencies": {
+    "standard": "10.0.3",
+    "chai": "^4.0.2",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1"
   },
   "homepage": "https://github.com/borel/bloodyMaze#readme"
 }
