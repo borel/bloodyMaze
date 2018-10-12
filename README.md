@@ -33,10 +33,6 @@ docker build -t user/bloody_maze . && docker run -p 8080:8080 -d user/bloody_maz
 In both case , the server will run on => 0.0.0.0:8080 ( you can define other config in config repository)
 
 
-On the web
-
-I deploy my app ( via docker ) on clever cloud , you can use => https://bloodymaze.cleverapps.io to test ( for example => https://bloodymaze.cleverapps.io/path?from=10030&to=10121 )
-
 ## Running the tests
 
 ```
@@ -44,6 +40,9 @@ npm test
 ```
 
 ## Deployment
+
+I deploy my app ( via docker ) on clever cloud , you can use => https://bloodymaze.cleverapps.io ( for example => https://bloodymaze.cleverapps.io/path?from=10030&to=10121 )
+You can create some config files for production/preprod/.... in config directory , you just have to set an environment variable ( NODE_ENV=production ) to be redirect to relevant config file ( production.js if NODE_ENV=production )
 
 ## Contribute
 
