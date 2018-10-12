@@ -32,6 +32,11 @@ docker build -t user/bloody_maze . && docker run -p 8080:8080 -d user/bloody_maz
 
 In both case , the server will run on => 0.0.0.0:8080 ( you can define other config in config repository)
 
+
+On the web
+
+I deploy my app ( via docker ) on clever cloud , you can use => https://bloodymaze.cleverapps.io to test ( for example => https://bloodymaze.cleverapps.io/path?from=10030&to=10121 )
+
 ## Running the tests
 
 ```
