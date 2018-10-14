@@ -49,7 +49,7 @@ You can create some config files for production/preprod/.... in config directory
 
 - add real log management
 - add redis cache
-
+- add security ( https ...)
 
 ## Versioning
 
