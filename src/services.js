@@ -66,28 +66,53 @@ const getPaths = (graph, startingGeoPointId, endingGeoPointId) => {
 const buildingFormatedPaths = (paths, jsonDatas) => {
   const steps = []
   let distanceFromBegining = 0
-  const firstStep = {}
-  firstStep.id = Number(paths[0])
-  firstStep.distance = 0
-  firstStep.distance_from_begining = distanceFromBegining
+
+  // Get the full first step to get the name
+  const fullFirstStep = getStep(jsonDatas, paths[0])
+  const firstStep = buildStep(fullFirstStep.id, fullFirstStep.name, fullFirstStep.latitude, fullFirstStep.longitude, 0, 0)
   steps.push(firstStep)
 
   paths.forEach((path, index) => {
     const nextStepId = paths[index + 1]
     if (nextStepId) {
       // Getting distance information from initial json file
-      const currentStep = jsonDatas.find(geoPoint => Number(geoPoint.id) === Number(path))
-      const nextStep = currentStep.links.find(link => Number(link.id) === Number(nextStepId))
+      const fullCurrentStep = getStep(jsonDatas, path)
+      const nextStep = fullCurrentStep.links.find(link => Number(link.id) === Number(nextStepId))
+      const fullNextStep = getStep(jsonDatas, nextStepId)
       distanceFromBegining += nextStep.distance
-
-      const step = {}
-      step.id = Number(nextStepId)
-      step.distance = nextStep.distance
-      step.distance_from_begining = distanceFromBegining
+      const step = buildStep(fullNextStep.id, fullNextStep.name, fullNextStep.latitude, fullNextStep.longitude, nextStep.distance, distanceFromBegining)
       steps.push(step)
     }
   })
   return steps
+}
+
+/**
+ * Building step
+ * @param {*} id
+ * @param {*} name
+ * @param {*} latitude
+ * @param {*} longitude
+ * @param {*} distance
+ * @param {*} distanceFromBegining
+ */
+const buildStep = (id, name, latitude, longitude, distance, distanceFromBegining) => {
+  const step = {}
+  step.id = Number(id)
+  step.tooltip = `${id} ${name}`
+  step.position = { lat: latitude, lng: longitude }
+  step.distance = distance
+  step.distance_from_begining = distanceFromBegining
+  return step
+}
+
+/**
+ * Getting step from json file
+ * @param {*} jsonDatas
+ * @param {*} id
+ */
+const getStep = (jsonDatas, id) => {
+  return jsonDatas.find(geoPoint => Number(geoPoint.id) === Number(id))
 }
 
 module.exports = {

@@ -61,12 +61,17 @@ describe('#getFormatedPaths', () => {
     {
       desc: 'Should return an array of one element with distance and distance_from_begining are equal to O , when the startingGeoPointId and endingGeoPointId are the same ',
       element: {
-        jsonDatas: {}, graph: [], startingGeoPointId: 1, endingGeoPointId: 1
+        jsonDatas: simpleJsonDatas, graph: simpleGraph, startingGeoPointId: 1, endingGeoPointId: 1
       },
       expected: [{
         'distance': 0,
         'distance_from_begining': 0,
-        'id': 1
+        'id': 1,
+        'position': {
+          'lat': 1,
+          'lng': 1
+        },
+        'tooltip': '1 Point 1'
       }]
     },
     {
@@ -77,12 +82,22 @@ describe('#getFormatedPaths', () => {
       expected: [{
         'distance': 0,
         'distance_from_begining': 0,
-        'id': 1
+        'id': 1,
+        'position': {
+          'lat': 1,
+          'lng': 1
+        },
+        'tooltip': '1 Point 1'
       },
       {
         'distance': 10,
         'distance_from_begining': 10,
-        'id': 2
+        'id': 2,
+        'position': {
+          'lat': 2,
+          'lng': 2
+        },
+        'tooltip': '2 Point 2'
       }]
     },
     {
@@ -93,17 +108,32 @@ describe('#getFormatedPaths', () => {
       expected: [{
         'distance': 0,
         'distance_from_begining': 0,
-        'id': 1
+        'id': 1,
+        'position': {
+          'lat': 1,
+          'lng': 1
+        },
+        'tooltip': '1 Point 1'
       },
       {
         'distance': 10,
         'distance_from_begining': 10,
-        'id': 2
+        'id': 2,
+        'position': {
+          'lat': 2,
+          'lng': 2
+        },
+        'tooltip': '2 Point 2'
       },
       {
         'distance': 10,
         'distance_from_begining': 20,
-        'id': 4
+        'id': 4,
+        'position': {
+          'lat': 4,
+          'lng': 4
+        },
+        'tooltip': '4 Point 4'
       }]
     },
     {
@@ -114,17 +144,32 @@ describe('#getFormatedPaths', () => {
       expected: [{
         'distance': 0,
         'distance_from_begining': 0,
-        'id': 1
+        'id': 1,
+        'position': {
+          'lat': 1,
+          'lng': 1
+        },
+        'tooltip': '1 Point 1'
       },
       {
         'distance': 10,
         'distance_from_begining': 10,
-        'id': 2
+        'id': 2,
+        'position': {
+          'lat': 2,
+          'lng': 2
+        },
+        'tooltip': '2 Point 2'
       },
       {
         'distance': 10,
         'distance_from_begining': 20,
-        'id': 3
+        'id': 3,
+        'position': {
+          'lat': 3,
+          'lng': 3
+        },
+        'tooltip': '3 Point 3'
       }]
     }
   ]

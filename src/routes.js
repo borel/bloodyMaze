@@ -13,8 +13,19 @@ const addRoutes = (app, graph, jsonDatas) => {
       res.status(500).send({ error: 'Internal error' })
     }
   })
-  app.get('/map', (req, res) => {
-    res.send(jsonDatas)
+  app.get('/markers', (req, res) => {
+    const markers = []
+    jsonDatas.forEach(geoPoint => {
+      markers.push({ id: geoPoint.id, tooltip: `${geoPoint.id} ${geoPoint.name}`, position: { lat: geoPoint.latitude, lng: geoPoint.longitude } })
+    })
+    res.send(markers)
+  })
+  app.get('/select', (req, res) => {
+    const options = []
+    jsonDatas.forEach(geoPoint => {
+      options.push({ value: geoPoint.id, text: `${geoPoint.id} ${geoPoint.name}` })
+    })
+    res.send(options)
   })
 }
 
